@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strake - Navigate Your Entire Data Stack from One Place</title>
+    <meta name="description"
+        content="A developer-first approach to quickly enable data teams, scaling seamlessly from local setup to enterprise settings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="flow-bg"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <!-- Icon Only (Cropped) -->
+                <img src="bitmap.png" alt="Strake Logo" class="logo-img" id="strake-logo"
+                    style="height: 90px; width: auto;">
+                <!-- Wordmark (Horizontal) -->
+                <span
+                    style="font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; color: var(--primary);">STRAKE</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benchmarks">Benchmarks</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="https://github.com/strake-data/strake">GitHub</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="https://github.com/strake-data/strake" class="github-icon">
+                    <svg height="24" viewBox="0 0 16 16" width="24">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container text-center">
+            <div class="launch-badge">
+                Launching Q1 2026 &mdash; <a href="#pricing">Join Early Access</a>
+            </div>
+            <h1>Query Your Entire Data Stack. <br>Zero ETL Required.</h1>
+            <p class="sub-header">
+                Federated SQL across PostgreSQL, Snowflake, and files—without copying a single byte.
+                <br>Built on <strong>Apache Arrow and Datafusion</strong>.
+            </p>
+
+            <!-- Code Block using proven styles -->
+            <div class="hero-code-block" style="background-color: #0F172A !important; position: relative; z-index: 20;">
+                <div style="color: #64748B; margin-bottom: 1rem; font-size: 0.85rem;">demo.py</div>
+                <pre style="margin: 0; color: #F8FAFC; text-align: left;"><code><span style="color: #C678DD;">import</span> strakepy
+
+<span style="color: #61AFEF;">conn</span> = strakepy.StrakeConnection(<span style="color: #98C379;">"grpc://localhost:50051"</span>)
+
+<span style="color: #61AFEF;">df</span> = conn.sql(<span style="color: #98C379;">"""
+  SELECT m.machine_id, SUM(o.o_totalprice) as revenue
+  FROM strake.public.orders o
+  JOIN strake.public.machine_measurements m 
+    ON o.o_orderkey = m.machine_id
+  WHERE o.o_custkey < 1000
+  GROUP BY m.machine_id
+"""</span>)
+
+<div class="output-area">
+</div></code></pre>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#early-access" class="btn btn-pill btn-primary">Join Early Access</a>
+                <a href="https://github.com/strake-data/strake" class="btn btn-pill btn-secondary">
+                    Try OSS Beta
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Moved: Developer First (Built for Data Teams) -->
+    <section class="dev-first-section text-center">
+        <div class="container">
+            <span class="badge">Developer First</span>
+            <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--primary); margin: 1rem 0 1.5rem;">Built for
+                Data Teams Who Ship Fast</h2>
+            <p class="sub-header" style="max-width: 700px; margin: 0 auto 3rem;">
+                Stop waiting for ETL pipelines. Strake lets you query any data source with standard SQL—locally in
+                development, or at scale in production.
+            </p>
+            <div class="dev-features">
+                <div class="dev-feature">
+                    <div class="dev-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>5-Minute Setup</h3>
+                    <p>From zero to querying PostgreSQL + S3 in 5 minutes. No infrastructure required.</p>
+                </div>
+                <div class="dev-feature">
+                    <div class="dev-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </div>
+                    <h3>GitOps Native</h3>
+                    <p>Manage 100 data sources as easily as editing a YAML file. Validate offline. Deploy with
+                        confidence.</p>
+                </div>
+                <div class="dev-feature">
+                    <div class="dev-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3>Code-First Python</h3>
+                    <p>10M rows → Pandas DataFrame in &lt;1 second. Zero-copy via PyArrow. No serialization overhead.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-federation text-center">
+        <div class="container">
+            <span class="badge" style="background: #E0F2FE; color: #0369A1;">Modern Hybrid Architecture</span>
+            <h2 class="hero-text">
+                Move Compute, Not Data.
+            </h2>
+
+            <div class="sub-header" style="max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+                <p style="margin-bottom: 1.5rem;">The default data architecture assumes you must centralize everything
+                    to
+                    analyze anything. This creates lag, cost, and complexity.</p>
+
+                <p style="margin-bottom: 1.5rem;"><strong>Strake flips the default.</strong> Treat your distributed data
+                    as a single
+                    logical
+                    warehouse. With intelligent caching and push-down execution, you can run
+                    production workloads directly on operational stores.</p>
+
+                <p style="font-weight: 500; color: var(--primary);">Keep data where it lives. Don't materialize data
+                    until physics demands it.</p>
+            </div>
+
+
+            <!-- <div class="shift-grid">
+
+            <div class="comparison-pane pain">
+                <span class="pane-label">The ETL Problem</span>
+
+                <div class="pipeline-visual">
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">📤</span>
+                            <span>Step 1: Extract (Copying Entire Table)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar etl-slow"></div>
+                        </div>
+                        <span class="step-status loading">Copying 47M of 100M rows...</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">📥</span>
+                            <span>Step 2: Load to Warehouse (Still Waiting...)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar etl-waiting"></div>
+                        </div>
+                        <span class="step-status waiting">Waiting...</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">🔍</span>
+                            <span>Step 3: Query Results (Blocked)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar etl-waiting"></div>
+                        </div>
+                        <span class="step-status waiting">Waiting...</span>
+                    </div>
+                </div>
+
+                <div class="pane-stats">
+                    <div class="pane-stat-row">
+                        <span>⏱️ Elapsed</span>
+                        <span class="stat-val pain-val">47 minutes...</span>
+                    </div>
+                    <div class="pane-stat-row">
+                        <span>� Data Moved</span>
+                        <span class="stat-val pain-val">4.7GB of 10GB</span>
+                    </div>
+                    <div class="pane-stat-row">
+                        <span>💰 Cost</span>
+                        <span class="stat-val pain-val">~$23.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shift-divider">→</div>
+
+
+            <div class="comparison-pane relief">
+                <span class="pane-label">Strake Federation</span>
+
+                <div class="pipeline-visual">
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">⚡</span>
+                            <span>Step 1: Send Query (Instant)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar strake-complete"></div>
+                        </div>
+                        <span class="step-status complete">✓ Complete</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">🎯</span>
+                            <span>Step 2: Execute at Source (Pushdown)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar strake-complete delay-1"></div>
+                        </div>
+                        <span class="step-status complete">✓ Complete</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-header">
+                            <span class="step-icon">📊</span>
+                            <span>Step 3: Return Results (Only What You Need)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar strake-complete delay-2"></div>
+                        </div>
+                        <span class="step-status complete">✓ Complete</span>
+                    </div>
+                </div>
+
+                <div class="pane-stats">
+                    <div class="pane-stat-row">
+                        <span>⚡ Elapsed</span>
+                        <span class="stat-val relief-val">0.85 seconds</span>
+                    </div>
+                    <div class="pane-stat-row">
+                        <span>📊 Data Moved</span>
+                        <span class="stat-val relief-val">0 bytes</span>
+                    </div>
+                    <div class="pane-stat-row">
+                        <span>💰 Cost</span>
+                        <span class="stat-val relief-val">$0.02</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem;">
+            Federation doesn't replace your warehouse—it reduces premature engineering.
+            <br>
+            <a href="#benchmarks" style="color: var(--primary); font-weight: 600; text-decoration: underline;">
+                See performance benchmarks →
+            </a>
+        </div> -->
+
+            <div class="architecture-guide">
+                <h3 class="text-center"
+                    style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 2rem;">The New
+                    Standard for Data Access</h3>
+
+                <div class="comparison-table">
+                    <!-- The Default Mode -->
+                    <div class="primary-column">
+                        <div class="tag-default">DEFAULT STRATEGY</div>
+                        <h4>High-Performance Federation</h4>
+                        <p><em>Use Strake for 90% of workloads.</em></p>
+                        <ul>
+                            <li>✅ <strong>Live Dashboards:</strong> Sub-second response via caching</li>
+                            <li>✅ <strong>Customer APIs:</strong> Real-time data serving</li>
+                            <li>✅ <strong>Cross-Silo Joins:</strong> User data + Product events</li>
+                            <li>✅ <strong>Operational Analytics:</strong> "What is happening right now?"</li>
+                        </ul>
+                        <div class="tech-note">
+                            <small>Powered by Push-down optimization & Arrow</small>
+                        </div>
+                    </div>
+
+                    <!-- The Exception Mode -->
+                    <div class="secondary-column">
+                        <div class="tag-exception">EXCEPTION ONLY</div>
+                        <h4>Physical Materialization (ETL)</h4>
+                        <p><em>Reserve for the top 10% heavy-lift tasks.</em></p>
+                        <ul>
+                            <li>⚠️ <strong>Massive History:</strong> Aggregating 10 years of logs</li>
+                            <li>⚠️ <strong>Slow Sources:</strong> Protecting fragile legacy APIs</li>
+                            <li>⚠️ <strong>Complex Snapshots:</strong> Slowly Changing Dimensions (Type 2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+
+
+    <section class="how-it-works text-center">
+        <div class="container">
+            <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;">How It Works</h2>
+            <p class="diagram-callout-top">Traditional tools copy your data. <strong>Strake queries it where it
+                    lives.</strong></p>
+
+            <!-- React Root for Animated Diagram -->
+            <div id="architecture-diagram-root"></div>
+
+            <p class="diagram-callout-bottom">No ETL pipelines. Just SQL.</p>
+        </div>
+    </section>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const PathParticle = ({ pathD, delay, speed = 3.5 }) => (
+            <div className="flow-particle" style={{
+                offsetPath: `path("${pathD}")`,
+                WebkitOffsetPath: `path("${pathD}")`,
+                animation: `followPath ${speed}s linear infinite`,
+                animationDelay: `${delay}s`,
+                position: 'absolute',
+                top: 0, left: 0,
+                opacity: 0,
+                boxShadow: '0 0 6px var(--primary)'
+            }} />
+        );
+
+        // Source/Destination Node
+        const Node = ({ label, sublabel, isOSS }) => (
+            <div className={`diagram-node ${isOSS ? 'oss' : 'enterprise'}`}>
+                <span className="node-label">{label}</span>
+                {sublabel && <span className="node-sublabel">{sublabel}</span>}
+                {isOSS !== undefined && (
+                    <span className={`node-badge ${isOSS ? 'badge-oss' : 'badge-ent'}`}>
+                        {isOSS ? '✓ OSS' : 'ENTERPRISE'}
+                    </span>
+                )}
+            </div>
+        );
+
+        // Main Diagram Component
+        const ArchitectureDiagram = () => {
+            const sources = [
+                { label: 'PostgreSQL', isOSS: true },
+                { label: 'Parquet / CSV', isOSS: true },
+                { label: 'Excel', isOSS: false },
+                { label: 'MySQL', isOSS: true },
+            ];
+
+            const destinations = [
+                { label: 'Analytics', sublabel: 'Jupyter, Pandas' },
+                { label: 'ML/AI', sublabel: 'Training, inference' },
+                { label: 'Dashboards', sublabel: 'PowerBI, Tableau' },
+            ];
+
+            const leftPaths = ["M0 50 Q50 50 95 130", "M0 110 Q50 110 95 130", "M0 170 Q50 170 95 130", "M0 230 Q50 230 95 130"];
+            const rightPaths = ["M5 130 Q50 60 100 60", "M5 130 Q50 145 100 145", "M5 130 Q50 230 100 230"];
+
+            return (
+                <div className="react-diagram">
+                    {/* Sources */}
+                    <div className="diagram-col sources">
+                        <div className="col-label">Data Sources</div>
+                        {sources.map((s, i) => (
+                            <Node
+                                key={i}
+                                {...s}
+                            />
+                        ))}
+                        {/*<div className="col-note">↑ Data stays in place</div>*/}
+                    </div>
+
+                    <div className="connector-zone left">
+                        <svg viewBox="0 0 100 260" className="connector-svg">
+                            <path d="M0 50 Q50 50 95 130" className="conn-path thin" />
+                            <path d="M0 110 Q50 110 95 130" className="conn-path thin" />
+                            <path d="M0 170 Q50 170 95 130" className="conn-path thin" />
+                            <path d="M0 230 Q50 230 95 130" className="conn-path thin" />
+                        </svg>
+
+                        {leftPaths.map((d, i) => (
+                            <PathParticle key={i} pathD={d} delay={i * 0.8} />
+                        ))}
+                    </div>
+
+                    {/* Center Engine */}
+                    <div className="diagram-col center">
+                        <div className="strake-engine">
+                            <div className="engine-glow"></div>
+                            <div className="engine-content">
+                                <div className="engine-name">STRAKE</div>
+                                <div className="engine-tagline">Zero-Copy Engine</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="connector-zone right">
+                        <svg viewBox="0 0 100 260" className="connector-svg">
+                            <path d="M5 130 Q50 60 100 60" className="conn-path thin" />
+                            <path d="M5 130 Q50 145 100 145" className="conn-path thin" />
+                            <path d="M5 130 Q50 230 100 230" className="conn-path thin" />
+                        </svg>
+
+                        {rightPaths.map((d, i) => (
+                            <PathParticle key={i} pathD={d} delay={i * 1.2} speed={3} />
+                        ))}
+                    </div>
+
+                    {/* Destinations */}
+                    <div className="diagram-col destinations">
+                        <div className="col-label">Consumers</div>
+                        {destinations.map((d, i) => (
+                            <Node
+                                key={i}
+                                {...d}
+                            />
+                        ))}
+
+                    </div>
+                </div>
+            );
+        };
+
+        // Render
+        const root = ReactDOM.createRoot(document.getElementById('architecture-diagram-root'));
+        root.render(<ArchitectureDiagram />);
+    </script>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge">Core Features</span>
+                <h2>Powerful Open-Source Federation</h2>
+                <p>Everything you need to unify your data landscape, available for everyone.</p>
+            </div>
+
+            <div class="feature-grid">
+                <!-- Speed -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3>Sub-Second Federation</h3>
+                    <p>Join PostgreSQL + Snowflake + Parquet in &lt;0.5s. Validated on TPC-H benchmarks with billions of
+                        rows.</p>
+                </div>
+
+                <!-- GitOps Native -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                        </svg>
+                    </div>
+                    <h3>Manage Data Mesh as Code</h3>
+                    <p>Version control your sources. Validate configuration offline. Deploy your data mesh with full
+                        confidence.</p>
+                </div>
+
+                <!-- Enterprise Ready -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h3>Built-In Governance</h3>
+                    <p>Row-level security, column masking, and SSO out-of-the-box. Security is not an afterthought.</p>
+                </div>
+
+                <!-- Universal Sources -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                        </svg>
+                    </div>
+                    <h3>Universal Sources</h3>
+                    <p>Connect to PostgreSQL, MySQL, SQLite, Snowflake, BigQuery, Parquet, CSV, JSON, REST APIs, and
+                        gRPC services—all through one SQL
+                        interface.</p>
+                </div>
+
+                <!-- Zero-Copy Python -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <h3>Zero-Copy Python</h3>
+                    <p>PyO3 bindings with direct conversion to PyArrow, Pandas, and Polars. No serialization overhead.
+                    </p>
+                </div>
+
+                <!-- Flight SQL Native -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                    </div>
+                    <h3>Flight SQL Native</h3>
+                    <p>Standard-compliant Arrow Flight SQL interface with full prepared statement support for maximum
+                        compatibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benchmarks" class="benchmarks text-center">
+        <div class="container">
+            <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--primary);">Performance Proof</h2>
+            <p class="sub-header">TPC-H SF2.0 (12M Rows) &mdash; PostgreSQL + Parquet Federation</p>
+            <div class="benchmark-grid">
+                <div class="bench-context-card">
+                    <div class="bench-val">1.18s</div>
+                    <div class="bench-title">Complex Join (Q3)</div>
+                    <ul class="bench-details">
+                        <li>PostgreSQL + Parquet</li>
+                        <li>12M rows total</li>
+                        <li>Join + Filter + Sort</li>
+                    </ul>
+                </div>
+                <div class="bench-context-card">
+                    <div class="bench-val">0.19s</div>
+                    <div class="bench-title">Scan & Filter (Q6)</div>
+                    <ul class="bench-details">
+                        <li>Direct Parquet Scan</li>
+                        <li>Pushdown enabled</li>
+                        <li>Sub-second latency</li>
+                    </ul>
+                </div>
+                <div class="bench-context-card">
+                    <div class="bench-val">0.28s</div>
+                    <div class="bench-title">Aggregation (Q1)</div>
+                    <ul class="bench-details">
+                        <li>Complex GROUP BY</li>
+                        <li>Multi-threaded exec</li>
+                        <li>Zero-copy results</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 3rem; color: var(--text-muted);">
+                <a href="performance.html" style="color: var(--primary); font-weight: 600;">View Full Methodology →</a>
+            </p>
+        </div>
+    </section>
+
+
+
+    <section id="pricing" class="pricing">
+        <div class="container relative">
+            <div class="pricing-beam"></div>
+            <div class="pricing-comparison">
+                <!-- OSS -->
+                <div class="comparison-card">
+                    <h3>OSS Edition</h3>
+                    <p class="card-description">Free Forever • Apache 2.0</p>
+                    <div class="price">Free</div>
+                    <ul class="check-list">
+                        <li>PostgreSQL, MySQL, SQLite connectors</li>
+                        <li>Snowflake & BigQuery (Arrow FlightSQL)</li>
+                        <li>Parquet, CSV, JSON file support (local and S3)</li>
+                        <li>REST API/gRPC Services connectors</li>
+                        <li>Flight SQL server</li>
+                        <li>Python bindings (PyArrow/Pandas)</li>
+                        <li>GitOps CLI with offline validation</li>
+                        <li>Connection pooling & circuit breakers</li>
+                    </ul>
+                    <a href="https://github.com/strake-data/strake"
+                        class="btn btn-pill btn-secondary full-width">Download Beta</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="comparison-card featured">
+                    <div class="popular-badge">LAUNCHING Q1 2026</div>
+                    <h3>Enterprise Edition</h3>
+                    <p class="card-description">Everything in OSS, plus:</p>
+                    <div class="price">Custom</div>
+                    <ul class="check-list">
+                        <li><strong>Data Contracts:</strong> Enforce schema & quality at query time</li>
+                        <li><strong>Caching:</strong> Up to 8x speedup on heavy TPC-H workloads</li>
+                        <li><strong>Compliance Audit Logs:</strong> SOC2-ready JSON structured logs</li>
+                        <li><strong>Data Governance:</strong> Dynamic row level security & Column Masking</li>
+                        <li><strong>SSO & RBAC:</strong> OIDC (Okta/Auth0) with Role Mapping</li>
+                        <li><strong>Native Excel Connector:</strong> Direct spreadsheet analysis</li>
+                        <li>Priority Feature Requests & Founder Contact</li>
+                    </ul>
+                    <a href="#early-access" class="btn btn-pill btn-primary full-width">Join Early Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>From our Blog</h2>
+                <p>Stay updated with the latest news, tutorials, and insights from the Strake team.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536ad8a?q=80&w=400&h=250&auto=format&fit=crop"
+                        alt="Blog post 1">
+                    <div class="blog-content">
+                        <h3>Unlocking Cross-DB Insights with Federated Queries</h3>
+                        <p>Learn how Strake breaks down data silos...</p>
+                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=400&h=250&auto=format&fit=crop"
+                        alt="Blog post 2">
+                    <div class="blog-content">
+                        <h3>Secure Your Data: A Guide to PII Masking</h3>
+                        <p>A deep dive into dynamic data masking for compliance...</p>
+                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&h=250&auto=format&fit=crop"
+                        alt="Blog post 3">
+                    <div class="blog-content">
+                        <h3>From Slow to Go: Optimizing Queries with Strake</h3>
+                        <p>Discover how our audit tools can boost performance...</p>
+                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="logo small">
+                    <span>Strake</span>
+                </div>
+                <p>&copy; 2025 Strake. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#"><svg height="20" viewBox="0 0 16 16" width="20">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const outputArea = document.querySelector('.output-area');
+        const queryResult = `
+<span style="color:#F1F5F9">┌──────────────────┬──────────────┐</span>
+<span style="color:#F1F5F9">│ customer_name    │ order_total  │</span>
+<span style="color:#F1F5F9">├──────────────────┼──────────────┤</span>
+<span style="color:#F1F5F9">│ Alice Johnson    │ 1250.00      │</span>
+<span style="color:#F1F5F9">│ Bob Smith        │ 840.50       │</span>
+<span style="color:#F1F5F9">│ Charlie Brown    │ 2100.75      │</span>
+<span style="color:#F1F5F9">└──────────────────┴──────────────┘</span>
+<br><span style="color:#27C93F">Query completed in 0.19s</span>
+<span class="cursor">_</span>`;
+
+        setTimeout(() => {
+            outputArea.innerHTML = '<span class="cursor">_</span>';
+            // Simple type out effect
+            let i = 0;
+            const type = () => {
+                outputArea.innerHTML = queryResult + '<span class="cursor">_</span>';
+            }
+            setTimeout(type, 800);
+        }, 500);
+    </script>
+
+</body>
+
+</html>
