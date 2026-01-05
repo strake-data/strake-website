@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strake - Navigate Your Entire Data Stack from One Place</title>
+    <title>Strake - Query your entire Data Stack. Zero ETL required.</title>
     <meta name="description"
         content="A developer-first approach to quickly enable data teams, scaling seamlessly from local setup to enterprise settings.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,18 +71,26 @@
 
             <!-- Code Block using proven styles -->
             <div class="hero-code-block" style="background-color: #0F172A !important; position: relative; z-index: 20;">
-                <div style="color: #64748B; margin-bottom: 1rem; font-size: 0.85rem;">demo.py</div>
+                <div style="color: #64748B; margin-bottom: 1rem; font-size: 0.85rem;">strake_demo.py</div>
                 <pre style="margin: 0; color: #F8FAFC; text-align: left;"><code><span style="color: #C678DD;">import</span> strakepy
 
 <span style="color: #61AFEF;">conn</span> = strakepy.StrakeConnection(<span style="color: #98C379;">"grpc://localhost:50051"</span>)
 
 <span style="color: #61AFEF;">df</span> = conn.sql(<span style="color: #98C379;">"""
-  SELECT m.machine_id, SUM(o.o_totalprice) as revenue
-  FROM strake.public.orders o
-  JOIN strake.public.machine_measurements m 
-    ON o.o_orderkey = m.machine_id
-  WHERE o.o_custkey < 1000
-  GROUP BY m.machine_id
+SELECT 
+    c.customer_name,
+    c.region,
+    o.order_total,
+    p.product_name
+  FROM postgres.prod.customers c
+  JOIN snowflake.analytics.orders o
+    ON c.customer_id = o.customer_id
+  JOIN json.catalog.products p
+    ON o.product_id = p.product_id
+  WHERE o.order_date >= '2024-01-01'
+    AND c.region IN ('US-West', 'US-East')
+  ORDER BY o.order_total DESC
+  LIMIT 5
 """</span>)
 
 <div class="output-area">
@@ -105,7 +113,7 @@
             <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--primary); margin: 1rem 0 1.5rem;">Built for
                 Data Teams Who Ship Fast</h2>
             <p class="sub-header" style="max-width: 700px; margin: 0 auto 3rem;">
-                Stop waiting for ETL pipelines. Strake lets you query any data source with standard SQL—locally in
+                Stop waiting for data pipelines. Strake lets you query any data source with standard SQL—locally in
                 development, or at scale in production.
             </p>
             <div class="dev-features">
@@ -552,14 +560,18 @@
     <script>
         const outputArea = document.querySelector('.output-area');
         const queryResult = `
-<span style="color:#F1F5F9">┌──────────────────┬──────────────┐</span>
-<span style="color:#F1F5F9">│ customer_name    │ order_total  │</span>
-<span style="color:#F1F5F9">├──────────────────┼──────────────┤</span>
-<span style="color:#F1F5F9">│ Alice Johnson    │ 1250.00      │</span>
-<span style="color:#F1F5F9">│ Bob Smith        │ 840.50       │</span>
-<span style="color:#F1F5F9">│ Charlie Brown    │ 2100.75      │</span>
-<span style="color:#F1F5F9">└──────────────────┴──────────────┘</span>
-<br><span style="color:#27C93F">Query completed in 0.19s</span>
+<span style="color:#F1F5F9">┌──────────────┬─────────┬──────────┬─────────────┐</span>
+<span style="color:#F1F5F9">│ customer     │ region  │ total    │ product     │</span>
+<span style="color:#F1F5F9">├──────────────┼─────────┼──────────┼─────────────┤</span>
+<span style="color:#F1F5F9">│ Alice Smith  │ US-West │ 2499.99  │ MacBook     │</span>
+<span style="color:#F1F5F9">│ Bob Chen     │ US-East │ 1899.50  │ Desk Pro    │</span>
+<span style="color:#F1F5F9">│ Carol Davis  │ US-West │ 1650.00  │ Office Chair│</span>
+<span style="color:#F1F5F9">│ David Kim    │ US-East │ 1249.99  │ Monitor 32" │</span>
+<span style="color:#F1F5F9">│ Emma Wilson  │ US-West │ 899.00   │ Headphones  │</span>
+<span style="color:#F1F5F9">└──────────────┴─────────┴──────────┴─────────────┘</span>
+
+<span style="color:#27C93F">Query completed in 0.34s</span>
+<span style="color:#64748B">-- Federated query across 3 data sources: Postgres, Snowflake, JSON</span>
 <span class="cursor">_</span>`;
 
         setTimeout(() => {
