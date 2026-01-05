@@ -11,145 +11,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .report-container {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .report-header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-        }
-
-        .report-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .report-section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h3 {
-            color: var(--text-main);
-            font-size: 1.25rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-        }
-
-        th,
-        td {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background-color: #F8FAFC;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        td {
-            color: var(--text-main);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .highlight-positive {
-            color: #10B981;
-            font-weight: 700;
-        }
-
-        .highlight-neutral {
-            color: var(--text-muted);
-        }
-
-        .specs-list {
-            list-style: none;
-            background: #F8FAFC;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .specs-list li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .spec-label {
-            font-weight: 600;
-            min-width: 150px;
-            color: var(--primary);
-        }
-
-        code {
-            background: #F1F5F9;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9em;
-            color: #DB2777;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            margin-bottom: 2rem;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
+    <div class="flow-bg"></div>
+
     <nav class="navbar">
         <div class="container">
             <div class="logo">
                 <a href="index.html"
                     style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="strake_logo.png" alt="Strake Logo" class="logo-img" style="height: 32px; width: auto;">
-                    STRAKE
+                    <img src="bitmap.png" alt="Strake Logo" class="logo-img" style="height: 90px; width: auto;">
+                    <span
+                        style="font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; color: var(--primary);">STRAKE</span>
                 </a>
             </div>
-            <a href="index.html#early-access" class="btn btn-pill btn-primary"
-                style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Get Early Access</a>
+            <ul class="nav-links">
+                <li><a href="connectors.html">Connectors</a></li>
+                <li><a href="index.html#benchmarks">Benchmarks</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="https://strakedata.substack.com/">Blog</a></li>
+                <li><a href="https://github.com/strake-data">GitHub</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -157,29 +40,41 @@
         <a href="index.html" class="back-link">← Back to Overview</a>
 
         <header class="report-header">
-            <h1 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">Performance Report: Strake vs
-                DuckDB</h1>
+            <h1 style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 800;">Performance
+                Report: Strake vs DuckDB</h1>
             <div class="report-meta">
-                Date: January 3, 2026 • Dataset: TPC-H Scale Factor 2.0 (approx. 2GB)
+                January 3, 2026 • TPC-H Scale Factor 2.0 (approx. 2GB)
             </div>
         </header>
 
         <section class="report-section">
             <h2>1. System Specifications</h2>
             <ul class="specs-list">
-                <li><span class="spec-label">CPU:</span> AMD Ryzen 5 3600 6-Core (12 vCPUs)</li>
-                <li><span class="spec-label">Memory:</span> 15Gi Total</li>
-                <li><span class="spec-label">OS:</span> Linux 6.6.87.2 (WSL2 / Ubuntu 22.04)</li>
-                <li><span class="spec-label">Strake Version:</span> Enterprise (Release Profile)</li>
-                <li><span class="spec-label">DuckDB Version:</span> v1.1</li>
+                <li>
+                    <span class="spec-label">CPU</span>
+                    <span class="spec-value">AMD Ryzen 5 3600 (12 vCPUs)</span>
+                </li>
+                <li>
+                    <span class="spec-label">Memory</span>
+                    <span class="spec-value">15Gi RAM</span>
+                </li>
+                <li>
+                    <span class="spec-label">OS</span>
+                    <span class="spec-value">Ubuntu 22.04 LTS</span>
+                </li>
+                <li>
+                    <span class="spec-label">Engines</span>
+                    <span class="spec-value">Strake ENT • DuckDB v1.1.x</span>
+                </li>
             </ul>
         </section>
 
         <section class="report-section">
             <h2>2. Benchmark Results</h2>
-            <p>Comparison of execution time for Parquet-only TPC-H queries. Lower is better.</p>
+            <p>Direct comparison of execution time for Parquet-only TPC-H queries. Strake leverages DataFusion's
+                multi-threaded execution for heavy aggregations.</p>
 
-            <table>
+            <table class="report-table">
                 <thead>
                     <tr>
                         <th>Query</th>
@@ -194,25 +89,23 @@
                                 Heavy</span></td>
                         <td>0.2788s</td>
                         <td>0.5724s</td>
-                        <td><span class="highlight-positive">Strake 2.05x Faster</span></td>
+                        <td><span class="highlight-positive">2.05x Faster</span></td>
                     </tr>
                     <tr>
                         <td><strong>Q6</strong> <br><span style="font-size:0.8rem; color:var(--text-muted)">Scan &
                                 Filter</span></td>
                         <td>0.1932s</td>
                         <td>0.0660s</td>
-                        <td><span class="highlight-neutral">DuckDB 2.93x Faster</span></td>
+                        <td><span class="highlight-neutral">DuckDB Leads</span></td>
                     </tr>
                 </tbody>
             </table>
 
-            <h3>Federated Performance (Strake Native)</h3>
-            <p>Queries joining live <strong>PostgreSQL</strong> data (Customers, Orders) with historical
-                <strong>Parquet</strong> archives (Lineitems). DuckDB cannot natively execute these hybrid plans without
-                complicated data movement overhead.
-            </p>
+            <h3>Cross-Source Federation</h3>
+            <p>Strake uniquely enables joins across disparate sources (e.g., PostgreSQL + Parquet) without data movement
+                overhead.</p>
 
-            <table>
+            <table class="report-table">
                 <thead>
                     <tr>
                         <th>Query</th>
@@ -225,68 +118,68 @@
                     <tr>
                         <td><strong>Q3</strong> <br><span style="font-size:0.8rem; color:var(--text-muted)">Shipping
                                 Priority</span></td>
-                        <td>Complex 3-way join with filter & sort</td>
-                        <td style="font-weight:700">2.58s</td>
+                        <td>3-way join with filter & sort</td>
+                        <td style="font-weight:700">1.18s</td>
                         <td><span
-                                style="font-size:0.85rem; background:#DBEAFE; color:#1E40AF; padding:2px 6px; border-radius:4px;">Postgres</span>
+                                style="font-size:0.8rem; background:#DBEAFE; color:#1E40AF; padding:2px 6px; border-radius:4px;">Postgres</span>
                             + <span
-                                style="font-size:0.85rem; background:#FEF3C7; color:#92400E; padding:2px 6px; border-radius:4px;">Parquet</span>
+                                style="font-size:0.8rem; background:#F1F5F9; color:var(--primary); padding:2px 6px; border-radius:4px;">Parquet</span>
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Q10</strong> <br><span style="font-size:0.8rem; color:var(--text-muted)">Returned
                                 Items</span></td>
-                        <td>Top 20 returned items analysis</td>
-                        <td style="font-weight:700">0.32s</td>
+                        <td>Top 20 analysis</td>
+                        <td style="font-weight:700">0.28s</td>
                         <td><span
-                                style="font-size:0.85rem; background:#DBEAFE; color:#1E40AF; padding:2px 6px; border-radius:4px;">Postgres</span>
+                                style="font-size:0.8rem; background:#DBEAFE; color:#1E40AF; padding:2px 6px; border-radius:4px;">Postgres</span>
                             + <span
-                                style="font-size:0.85rem; background:#FEF3C7; color:#92400E; padding:2px 6px; border-radius:4px;">Parquet</span>
+                                style="font-size:0.8rem; background:#F1F5F9; color:var(--primary); padding:2px 6px; border-radius:4px;">Parquet</span>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
         </section>
 
         <section class="report-section">
             <h2>3. Analysis</h2>
 
-            <h3>Competitive Parity Achieved</h3>
-            <p>Strake has demonstrated it is highly competitive with embedded engines like DuckDB for local Parquet
-                processing:</p>
-
-            <p><strong>1. Aggregation Heavy (Q1):</strong> Strake outperformed DuckDB. This highlights DataFusion's
-                efficient parallel execution model for heavy aggregations on multi-core systems. Strake defaults to
-                maximizing available cores, providing significant speedups for compute-intensive tasks.</p>
-
-            <p><strong>2. Scan/Filter Heavy (Q6):</strong> Strake is within 3x of DuckDB. This slight overhead is
-                expected and acceptable for a federated engine that provides layers of abstraction (Governance,
-                FlightSQL Network Protocol, Virtualization) compared to a raw in-process C++ library like DuckDB.</p>
-
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Compute Parallelism</h3>
+                    <p>Strake's DataFusion core scales linearly with core count. This explains the 2x lead in Q1
+                        aggregation, even on medium datasets.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Managed Overheads</h3>
+                    <p>The sub-second latency for Q6 remains competitive while providing governance and network
+                        interface layers that DuckDB lacks.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="report-section">
-            <h2>4. Conclusion</h2>
-            <p>Strake delivers high-performance analytics for production workloads. It uniquely provides:</p>
-            <ul style="padding-left: 1.5rem; color: var(--text-muted);">
-                <li style="margin-bottom: 0.5rem"><strong>High Performance:</strong> Sub-second response times for
-                    multi-GB analytics.</li>
-                <li style="margin-bottom: 0.5rem"><strong>Scalability:</strong> Validated parallel execution advantage
-                    over single-threaded defaults.</li>
-                <li style="margin-bottom: 0.5rem"><strong>Federation:</strong> The capability to join these fast local
-                    results with remote SQL sources (PostgreSQL) without moving data.</li>
-            </ul>
+        <section class="report-section" style="text-align: center;">
+            <a href="index.html#early-access" class="btn btn-pill btn-primary">Join Early Access</a>
         </section>
-
-        <div style="margin-top: 4rem; text-align: center;">
-            <a href="index.html#early-access" class="btn btn-pill btn-primary">Join Strake Early Access</a>
-        </div>
     </div>
 
     <footer class="footer">
-        <div class="container text-center">
-            <p>&copy; 2026 Strake. Comparison based on TPC-H SF2.0 benchmarks run on standard developer hardware.</p>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="logo small">
+                    <span>Strake</span>
+                </div>
+                <p>&copy; 2026 Strake. Comparison based on TPC-H SF2.0 benchmarks.</p>
+                <div class="footer-links">
+                    <a href="imprint.html"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-right: 1.5rem; font-weight: 600;">Imprint</a>
+                    <a href="https://github.com/strake-data"><svg height="20" viewBox="0 0 16 16" width="20">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

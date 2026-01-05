@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connectors - Strake Data Sources</title>
+    <meta name="description"
+        content="Explore the wide range of data sources supported by Strake, from SQL databases to cloud object storage and REST APIs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="flow-bg"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="bitmap.png" alt="Strake Logo" class="logo-img" style="height: 90px; width: auto;">
+                    <span
+                        style="font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; color: var(--primary);">STRAKE</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="connectors.html" style="color: var(--primary);">Connectors</a></li>
+                <li><a href="index.html#benchmarks">Benchmarks</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="https://strakedata.substack.com/">Blog</a></li>
+                <li><a href="https://github.com/strake-data">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="connectors-hero">
+        <div class="container">
+            <span class="badge">Ecosystem</span>
+            <h1>Any Data Source. One SQL Interface.</h1>
+            <p class="sub-header" style="max-width: 800px; margin: 0 auto;">
+                Strake connects to your entire data landscape. Move compute, not data, by querying distributed sources
+                as a single logical warehouse.
+            </p>
+        </div>
+    </header>
+
+    <main class="container" style="padding-bottom: 8rem;">
+
+        <!-- SQL Databases -->
+        <section class="connector-category">
+            <h2>SQL Databases</h2>
+            <div class="connector-grid">
+                <div class="connector-card">
+                    <div class="connector-icon">🐘</div>
+                    <div class="connector-info">
+                        <h3>PostgreSQL</h3>
+                        <span>Native Pushdown</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🐬</div>
+                    <div class="connector-info">
+                        <h3>MySQL / MariaDB</h3>
+                        <span>Standard SQL</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🐚</div>
+                    <div class="connector-info">
+                        <h3>SQLite</h3>
+                        <span>Local Embedded</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">⚡</div>
+                    <div class="connector-info">
+                        <h3>ClickHouse</h3>
+                        <span>Native Arrow</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">❄️</div>
+                    <div class="connector-info">
+                        <h3>Snowflake</h3>
+                        <span>Arrow Flight SQL</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🧊</div>
+                    <div class="connector-info">
+                        <h3>Dremio</h3>
+                        <span>Flight SQL Native</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Formats -->
+        <section class="connector-category">
+            <h2>Modern File Formats</h2>
+            <div class="connector-grid">
+                <div class="connector-card">
+                    <div class="connector-icon">🪵</div>
+                    <div class="connector-info">
+                        <h3>Apache Parquet</h3>
+                        <span>High-Speed Columnar</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">📄</div>
+                    <div class="connector-info">
+                        <h3>CSV / TSV</h3>
+                        <span>Universal Compat</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">📦</div>
+                    <div class="connector-info">
+                        <h3>JSON / NDJSON</h3>
+                        <span>Semi-Structured</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="tag-ent">ENTERPRISE</div>
+                    <div class="connector-icon">📊</div>
+                    <div class="connector-info">
+                        <h3>Microsoft Excel</h3>
+                        <span>Native Spreadsheets</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🛡️</div>
+                    <div class="connector-info">
+                        <h3>Apache Avro</h3>
+                        <span>Row-based / Schema</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Object Storage -->
+        <section class="connector-category">
+            <h2>Object Storage & Cloud</h2>
+            <div class="connector-grid">
+                <div class="connector-card">
+                    <div class="connector-icon">📦</div>
+                    <div class="connector-info">
+                        <h3>AWS S3</h3>
+                        <span>Native Integration</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">☁️</div>
+                    <div class="connector-info">
+                        <h3>Google GCS</h3>
+                        <span>Cloud Storage</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🔵</div>
+                    <div class="connector-info">
+                        <h3>Azure Blob</h3>
+                        <span>Enterprise Object</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REST & SaaS -->
+        <section class="connector-category">
+            <h2>REST APIs & SaaS</h2>
+            <div class="connector-grid">
+                <div class="connector-card">
+                    <div class="connector-icon">🌐</div>
+                    <div class="connector-info">
+                        <h3>Generic REST</h3>
+                        <span>JSON to SQL</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🐙</div>
+                    <div class="connector-info">
+                        <h3>GitHub API</h3>
+                        <span>Repo/Issue Analytics</span>
+                    </div>
+                </div>
+                <div class="connector-card">
+                    <div class="connector-icon">🌀</div>
+                    <div class="connector-info">
+                        <h3>gRPC Services</h3>
+                        <span>Typed Microservices</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="logo small">
+                    <span>Strake</span>
+                </div>
+                <p>&copy; 2026 Strake. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="imprint.html"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-right: 1.5rem; font-weight: 600;">Imprint</a>
+                    <a href="https://github.com/strake-data"><svg height="20" viewBox="0 0 16 16" width="20">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

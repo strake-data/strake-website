@@ -27,14 +27,14 @@
                     style="font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; color: var(--primary);">STRAKE</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
+                <li><a href="connectors.html">Connectors</a></li>
                 <li><a href="#benchmarks">Benchmarks</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="https://github.com/strake-data/strake">GitHub</a></li>
+                <li><a href="https://strakedata.substack.com/">Blog</a></li>
+                <li><a href="https://github.com/strake-data">GitHub</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="https://github.com/strake-data/strake" class="github-icon">
+                <a href="https://github.com/strake-data" class="github-icon">
                     <svg height="24" viewBox="0 0 16 16" width="24">
                         <path
                             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
@@ -77,7 +77,7 @@
             </div>
 
             <div class="hero-buttons">
-                <a href="#early-access" class="btn btn-pill btn-primary">Join Early Access</a>
+                <a href="mailto:info@strakedata.com" class="btn btn-pill btn-primary">Join Early Enterprise Access</a>
                 <a href="https://github.com/strake-data/strake" class="btn btn-pill btn-secondary">
                     Try OSS Beta
                 </a>
@@ -155,126 +155,6 @@
                 <p style="font-weight: 500; color: var(--primary);">Keep data where it lives. Don't materialize data
                     until physics demands it.</p>
             </div>
-
-
-            <!-- <div class="shift-grid">
-
-            <div class="comparison-pane pain">
-                <span class="pane-label">The ETL Problem</span>
-
-                <div class="pipeline-visual">
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">📤</span>
-                            <span>Step 1: Extract (Copying Entire Table)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar etl-slow"></div>
-                        </div>
-                        <span class="step-status loading">Copying 47M of 100M rows...</span>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">📥</span>
-                            <span>Step 2: Load to Warehouse (Still Waiting...)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar etl-waiting"></div>
-                        </div>
-                        <span class="step-status waiting">Waiting...</span>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">🔍</span>
-                            <span>Step 3: Query Results (Blocked)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar etl-waiting"></div>
-                        </div>
-                        <span class="step-status waiting">Waiting...</span>
-                    </div>
-                </div>
-
-                <div class="pane-stats">
-                    <div class="pane-stat-row">
-                        <span>⏱️ Elapsed</span>
-                        <span class="stat-val pain-val">47 minutes...</span>
-                    </div>
-                    <div class="pane-stat-row">
-                        <span>� Data Moved</span>
-                        <span class="stat-val pain-val">4.7GB of 10GB</span>
-                    </div>
-                    <div class="pane-stat-row">
-                        <span>💰 Cost</span>
-                        <span class="stat-val pain-val">~$23.50</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="shift-divider">→</div>
-
-
-            <div class="comparison-pane relief">
-                <span class="pane-label">Strake Federation</span>
-
-                <div class="pipeline-visual">
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">⚡</span>
-                            <span>Step 1: Send Query (Instant)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar strake-complete"></div>
-                        </div>
-                        <span class="step-status complete">✓ Complete</span>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">🎯</span>
-                            <span>Step 2: Execute at Source (Pushdown)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar strake-complete delay-1"></div>
-                        </div>
-                        <span class="step-status complete">✓ Complete</span>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-header">
-                            <span class="step-icon">📊</span>
-                            <span>Step 3: Return Results (Only What You Need)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar strake-complete delay-2"></div>
-                        </div>
-                        <span class="step-status complete">✓ Complete</span>
-                    </div>
-                </div>
-
-                <div class="pane-stats">
-                    <div class="pane-stat-row">
-                        <span>⚡ Elapsed</span>
-                        <span class="stat-val relief-val">0.85 seconds</span>
-                    </div>
-                    <div class="pane-stat-row">
-                        <span>📊 Data Moved</span>
-                        <span class="stat-val relief-val">0 bytes</span>
-                    </div>
-                    <div class="pane-stat-row">
-                        <span>💰 Cost</span>
-                        <span class="stat-val relief-val">$0.02</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div style="margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem;">
-            Federation doesn't replace your warehouse—it reduces premature engineering.
-            <br>
-            <a href="#benchmarks" style="color: var(--primary); font-weight: 600; text-decoration: underline;">
-                See performance benchmarks →
-            </a>
-        </div> -->
 
             <div class="architecture-guide">
                 <h3 class="text-center"
@@ -599,8 +479,9 @@
                     <p class="card-description">Free Forever • Apache 2.0</p>
                     <div class="price">Free</div>
                     <ul class="check-list">
-                        <li>PostgreSQL, MySQL, SQLite connectors</li>
-                        <li>Snowflake & BigQuery (Arrow FlightSQL)</li>
+                        <li>PostgreSQL, MySQL, SQLite (<a href="connectors.html"
+                                style="color: var(--primary); text-decoration: underline; font-weight: 500;">See 10+
+                                more</a>)</li>
                         <li>Parquet, CSV, JSON file support (local and S3)</li>
                         <li>REST API/gRPC Services connectors</li>
                         <li>Flight SQL server</li>
@@ -627,49 +508,13 @@
                         <li><strong>Native Excel Connector:</strong> Direct spreadsheet analysis</li>
                         <li>Priority Feature Requests & Founder Contact</li>
                     </ul>
-                    <a href="#early-access" class="btn btn-pill btn-primary full-width">Join Early Access</a>
+                    <a href="mailto:info@strakedata.com" class="btn btn-pill btn-primary full-width">Join Early
+                        Enterprise Access</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <section id="blog" class="blog">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>From our Blog</h2>
-                <p>Stay updated with the latest news, tutorials, and insights from the Strake team.</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536ad8a?q=80&w=400&h=250&auto=format&fit=crop"
-                        alt="Blog post 1">
-                    <div class="blog-content">
-                        <h3>Unlocking Cross-DB Insights with Federated Queries</h3>
-                        <p>Learn how Strake breaks down data silos...</p>
-                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=400&h=250&auto=format&fit=crop"
-                        alt="Blog post 2">
-                    <div class="blog-content">
-                        <h3>Secure Your Data: A Guide to PII Masking</h3>
-                        <p>A deep dive into dynamic data masking for compliance...</p>
-                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&h=250&auto=format&fit=crop"
-                        alt="Blog post 3">
-                    <div class="blog-content">
-                        <h3>From Slow to Go: Optimizing Queries with Strake</h3>
-                        <p>Discover how our audit tools can boost performance...</p>
-                        <a href="#" class="read-more">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <footer class="footer">
         <div class="container">
@@ -677,9 +522,11 @@
                 <div class="logo small">
                     <span>Strake</span>
                 </div>
-                <p>&copy; 2025 Strake. All rights reserved.</p>
+                <p>&copy; 2026 Strake. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#"><svg height="20" viewBox="0 0 16 16" width="20">
+                    <a href="imprint.html"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-right: 1.5rem; font-weight: 600;">Imprint</a>
+                    <a href="https://github.com/strake-data"><svg height="20" viewBox="0 0 16 16" width="20">
                             <path
                                 d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
                             </path>

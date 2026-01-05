@@ -1044,9 +1044,8 @@ body {
 
 .comparison-table {
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
-    /* 60/40 split */
-    gap: 2rem;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -1054,7 +1053,7 @@ body {
     background: white;
     border: 2px solid var(--primary);
     border-radius: 0.75rem;
-    padding: 2.5rem;
+    padding: 1.5rem 1.75rem;
     position: relative;
     box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.1);
 }
@@ -1076,7 +1075,7 @@ body {
     background: white;
     border: 1px solid var(--border);
     border-radius: 0.75rem;
-    padding: 2.5rem;
+    padding: 1.5rem 1.75rem;
     position: relative;
     opacity: 1;
     /* Remove opacity to match others */
@@ -1111,6 +1110,7 @@ body {
     margin-bottom: 0.75rem;
     font-size: 0.95rem;
     color: var(--text-muted);
+    white-space: nowrap;
 }
 
 .tech-note {
@@ -1979,4 +1979,238 @@ body {
     border: 2px solid var(--primary);
     box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.1);
     /* Subtle blue shadow */
+}
+
+/* Report & Methodology Styles (Promoted from performance.html) */
+.report-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.report-header {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.report-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.report-section {
+    margin-bottom: 4rem;
+}
+
+.report-section h2 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.report-section h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.report-section p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+}
+
+.report-table th,
+.report-table td {
+    text-align: left;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.report-table th {
+    background-color: #F8FAFC;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.report-table td {
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.report-table tr:last-child td {
+    border-bottom: none;
+}
+
+.highlight-positive {
+    color: #10B981;
+    font-weight: 800;
+}
+
+.highlight-neutral {
+    color: var(--text-muted);
+}
+
+.specs-list {
+    list-style: none;
+    background: #F8FAFC;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.specs-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.spec-label {
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.spec-value {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+}
+
+/* Connectors Page Styles */
+.connectors-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+.connectors-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+}
+
+.connector-category {
+    margin-bottom: 6rem;
+}
+
+.connector-category h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.connector-category h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.connector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.connector-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.connector-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.1);
+}
+
+.connector-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F1F5F9;
+    border-radius: 0.75rem;
+}
+
+.connector-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+}
+
+.connector-info span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.tag-ent {
+    position: absolute;
+    top: -8px;
+    right: 1rem;
+    background: #FEF3C7;
+    color: #92400E;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #FDE68A;
 }
