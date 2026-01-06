@@ -1,0 +1,4 @@
+# Redirect /install.sh to the raw GitHub file
+/install.sh  https://raw.githubusercontent.com/strake-data/strake/main/install.sh  302
+
+/install     https://raw.githubusercontent.com/strake-data/strake/main/install.sh  302
