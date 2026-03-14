@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="theme.css?v=6.0" />
+  <link rel="canonical" href="https://www.strakedata.com/" />
   <link rel="icon" type="image/png" href="bitmap.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VS8P121ZJ"></script>
   <script>
@@ -21,6 +22,37 @@
     gtag('js', new Date());
 
     gtag('config', 'G-3VS8P121ZJ');
+  </script>
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Strake",
+        "url": "https://www.strakedata.com",
+        "logo": "https://www.strakedata.com/bitmap.png",
+        "sameAs": [
+          "https://github.com/strake-data",
+          "https://www.linkedin.com/company/strakedata",
+          "https://www.crunchbase.com/organization/strake"
+        ],
+        "description": "Strake is the AI Data Layer — a federated SQL engine with Firecracker MicroVM-isolated Python sandboxes for enterprise AI agent data workflows. It addresses the 43% command injection vulnerability rate found in public MCP servers (Invariant Labs, 2025)."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Strake",
+        "operatingSystem": "Linux, macOS",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": "Federated SQL, Firecracker MicroVM Sandboxing, MCP-Native Discovery, Apache Arrow Powered",
+        "description": "Strake is an AI data layer: a federated SQL engine with Firecracker MicroVM-isolated Python sandboxes, designed as infrastructure for agentic workflows."
+      }
+    ]
   </script>
 </head>
 
@@ -41,7 +73,7 @@
     <nav class="navbar">
       <div class="container">
         <a href="index.html" class="logo">
-          <img src="bitmap.png" alt="Strake Logo" class="logo-img" />
+          <img src="bitmap.png" alt="Strake Logo" class="logo-img" width="32" height="32" />
           <span class="logo-text">STRAKE</span>
         </a>
         <ul class="nav-links">
@@ -275,7 +307,9 @@
             <p>
               Every agent execution runs inside strict native OS sandboxes for
               performance, or ephemeral
-              <strong>MicroVMs</strong> for hardware-level isolation.
+              <strong><a href="mcp-enterprise-security.html"
+                  style="color: inherit; text-decoration: underline;">MicroVMs</a></strong> for <a href="firecracker-sandbox.html" style="color: inherit; text-decoration: underline;">hardware-level
+              isolation</a>.
             </p>
           </div>
 
@@ -316,8 +350,9 @@
             </div>
             <h3>MCP-Native Discovery</h3>
             <p>
-              Built for the <strong>Model Context Protocol</strong>. Your
-              agents immediately discover your entire data catalog and schemas.
+              Built for the <a href="mcp-enterprise-security.html"
+                style="color: inherit; text-decoration: underline;"><strong>Model Context Protocol</strong></a>. Your
+              agents immediately discover your entire data catalog and schemas, ready for <a href="mcp-streamable-http-production.html" style="color: inherit; text-decoration: underline;">production scaling</a>.
             </p>
           </div>
 
@@ -802,7 +837,8 @@
             <h4>Does this work with LangChain or Claude?</h4>
             <p>
               Yes. Strake follows the
-              <strong>Model Context Protocol (MCP)</strong> standards. Any
+              <strong><a href="mcp-enterprise-security.html" style="color: inherit; text-decoration: underline;">Model
+                  Context Protocol (MCP)</a></strong> standards. Any
               framework that supports MCP can call the <code>run_python</code>
               tool to execute analysis across your entire data stack.
             </p>
